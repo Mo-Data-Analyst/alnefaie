@@ -20,7 +20,7 @@ export const siteInfo = {
   contact: {
     address: 'مصر',
     phone: '0 10 09309266',
-    whatsappNumber: '0 10 98600163',
+    whatsappNumber: '201098600163',
     email: 'contact@alnefaie.com',
   },
 
