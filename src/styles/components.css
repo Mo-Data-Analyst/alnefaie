@@ -1,0 +1,161 @@
+/* Shared pieces: buttons, section headings, language switcher, reveal animation */
+
+/* ---------- Buttons ---------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 24px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-small);
+  font: 600 15px var(--font-body);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.22s;
+}
+
+.button--gold {
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+.button--gold:hover {
+  background: var(--color-gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px -10px rgba(199, 167, 108, 0.7);
+}
+.button--gold:active {
+  transform: none;
+}
+.button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.button--ghost {
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--color-white);
+}
+.button--ghost:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.button--dark {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+.button--dark:hover {
+  background: var(--color-blue);
+}
+
+/* Arrow: points forward in both languages */
+.button__arrow {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+html[dir='rtl'] .button__arrow {
+  transform: scaleX(-1);
+}
+.button:hover .button__arrow,
+.service-card__link:hover .button__arrow {
+  transform: translateX(3px);
+}
+html[dir='rtl'] .button:hover .button__arrow,
+html[dir='rtl'] .service-card__link:hover .button__arrow {
+  transform: scaleX(-1) translateX(3px);
+}
+
+/* ---------- Section heading ---------- */
+.section-heading {
+  max-width: 680px;
+  margin-bottom: 56px;
+}
+.section-heading--centered {
+  margin-inline: auto;
+  text-align: center;
+}
+.section-heading__kicker {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--color-gold-dark);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+html[lang='en'] .section-heading__kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+}
+.section-heading__intro {
+  color: var(--color-text-muted);
+  font-size: 17px;
+}
+
+/* ---------- Language switcher ---------- */
+.language-switcher {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+.language-switcher button {
+  padding: 5px 11px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: #aeb7c4;
+  font: 500 12.5px var(--font-body);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.language-switcher button:hover {
+  color: var(--color-white);
+}
+.language-switcher button[aria-pressed='true'] {
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+
+/* ---------- Fade-in on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+/* Respect visitors who turn off animations in their system settings */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .section-heading {
+    margin-bottom: 40px;
+  }
+}

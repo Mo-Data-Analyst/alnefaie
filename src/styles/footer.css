@@ -1,0 +1,85 @@
+.site-footer {
+  padding: 76px 0 30px;
+  background: var(--color-navy);
+  color: var(--color-text-on-dark-muted);
+  font-size: 14.5px;
+}
+
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-footer__brand {
+  margin-bottom: 18px;
+}
+.site-footer__brand img {
+  width: 96px;
+  height: 96px;
+}
+
+.site-footer__slogan {
+  margin-top: 14px;
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.site-footer__title {
+  margin-bottom: 18px;
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.site-footer ul {
+  display: grid;
+  gap: 10px;
+}
+.site-footer a:hover {
+  color: var(--color-gold);
+}
+
+.site-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 26px;
+  color: #7f8b9c;
+  font-size: 13px;
+}
+.language-switcher--footer {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+@media (max-width: 1080px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  /* Bigger tap targets on phones */
+  .site-footer ul {
+    gap: 2px;
+  }
+  .site-footer li a {
+    display: inline-block;
+    padding: 8px 0;
+  }
+  .language-switcher--footer button {
+    padding: 8px 14px;
+  }
+  /* Keep the office name readable in the footer on phones */
+  .site-footer .brand__tagline {
+    display: block;
+  }
+}

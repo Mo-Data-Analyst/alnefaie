@@ -1,0 +1,210 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 96px 0 110px;
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(800px 420px at 85% 10%, rgba(199, 167, 108, 0.1), transparent 60%),
+    radial-gradient(600px 400px at 0% 100%, rgba(36, 55, 83, 0.9), transparent 70%);
+}
+.hero__grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(180deg, #000, transparent 85%);
+}
+
+.hero__layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  color: var(--color-gold);
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.hero__eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--color-gold);
+  flex-shrink: 0;
+}
+
+.hero h1 {
+  margin-bottom: 22px;
+  font-size: clamp(32px, 4.2vw, 52px);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+}
+html[lang='en'] .hero h1 {
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--color-gold);
+}
+
+.hero__lead {
+  max-width: 560px;
+  margin-bottom: 36px;
+  color: var(--color-text-on-dark);
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 52px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.hero__highlights li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #93a0b1;
+  font-size: 13.5px;
+}
+.hero__highlights svg {
+  flex-shrink: 0;
+  color: var(--color-gold);
+}
+
+/* Decorative card */
+.hero-card {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 470px;
+  aspect-ratio: 1 / 1.02;
+}
+.hero-card__panel {
+  position: absolute;
+  background: linear-gradient(160deg, #1e3050, #16253d);
+  border: 1px solid rgba(199, 167, 108, 0.22);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-floating);
+}
+.hero-card__main {
+  inset: 8% 4% 2% 6%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+.hero-card__tag {
+  top: 0;
+  inset-inline-end: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  color: #d9dee5;
+  font-size: 12.5px;
+}
+.hero-card__tag::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7bc59a;
+  box-shadow: 0 0 0 4px rgba(123, 197, 154, 0.15);
+}
+.hero-card__logo {
+  width: 150px;
+  height: auto;
+  margin: 0 auto 6px;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
+}
+.hero-card__slogan {
+  margin-bottom: 22px;
+  text-align: center;
+  color: var(--color-gold);
+  font-size: 19px;
+  font-weight: 600;
+}
+.hero-card__rows {
+  display: grid;
+  gap: 11px;
+  margin-top: auto;
+}
+.hero-card__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-small);
+  background: rgba(255, 255, 255, 0.035);
+  color: #c3cbd6;
+  font-size: 13px;
+}
+.hero-card__row svg {
+  flex-shrink: 0;
+  color: var(--color-gold);
+}
+
+@media (max-width: 1080px) {
+  .hero__layout {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  .hero-card {
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    padding: 64px 0 76px;
+  }
+  .hero__lead {
+    font-size: 16.5px;
+  }
+  .hero__actions .button {
+    flex: 1;
+  }
+  .hero__highlights {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .hero-card {
+    aspect-ratio: auto;
+  }
+  .hero-card__main {
+    position: relative;
+    inset: auto;
+  }
+  .hero-card__tag {
+    display: none;
+  }
+}

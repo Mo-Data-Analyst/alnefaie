@@ -1,0 +1,209 @@
+.contact {
+  background: var(--color-white);
+  border-top: 1px solid var(--color-border);
+}
+
+.contact__layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 64px;
+}
+.contact__layout > * {
+  min-width: 0; /* stop long content from stretching the grid columns */
+}
+.contact__layout .section-heading {
+  margin-bottom: 0;
+}
+
+/* Address / phone / WhatsApp / email list */
+.contact-details {
+  display: grid;
+  gap: 14px;
+  margin-top: 34px;
+}
+.contact-details__item {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-warm-white);
+}
+.contact-details__item.is-placeholder {
+  border: 1px dashed #d6cdb9;
+}
+.contact-details__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-small);
+  background: var(--color-navy);
+  color: var(--color-gold);
+}
+.contact-details small {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: 12.5px;
+}
+.contact-details strong,
+.contact-details a {
+  color: #7a6640;
+  font-size: 15px;
+  font-weight: 600;
+}
+.contact-details a:hover {
+  color: var(--color-gold-dark);
+  text-decoration: underline;
+}
+
+/* Form */
+.contact-form {
+  padding: 40px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  background: var(--color-warm-white);
+}
+.contact-form__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-field {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+  align-content: start;
+}
+.form-field--full {
+  grid-column: 1 / -1;
+}
+.form-field label {
+  color: #2c3849;
+  font-size: 13.5px;
+  font-weight: 500;
+}
+.form-field__optional {
+  color: var(--color-text-faint);
+  font-weight: 400;
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-small);
+  background: var(--color-white);
+  color: var(--color-navy);
+  font: 400 15px var(--font-body);
+  transition: 0.2s;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(199, 167, 108, 0.18);
+}
+.form-field :disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+.form-field [aria-invalid='true'] {
+  border-color: #b4553f;
+}
+.form-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.form-field__error {
+  color: #a3442f;
+  font-size: 13px;
+}
+
+.form-field__phone {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 8px;
+}
+/* The code + number pair is always laid out left-to-right (wrapper has dir="ltr") */
+.form-field__phone input,
+.form-field__phone select {
+  text-align: left;
+}
+html[dir='rtl'] .form-field input[type='email'] {
+  text-align: right;
+}
+
+.contact-form__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 26px;
+}
+.contact-form__footer p {
+  max-width: 340px;
+  color: var(--color-text-muted);
+  font-size: 12.5px;
+}
+
+.contact-form__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: contact-spin 0.8s linear infinite;
+}
+@keyframes contact-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.contact-form__status {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: var(--radius-small);
+  font-size: 14px;
+  animation: fade-in 0.3s;
+}
+.contact-form__status svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.contact-form__status--success {
+  background: #e3f1e8;
+  color: #23573a;
+}
+.contact-form__status--error {
+  background: #f7e3de;
+  color: #7c3424;
+}
+
+@media (max-width: 1080px) {
+  .contact__layout {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+}
+@media (max-width: 720px) {
+  .contact-form {
+    padding: 26px 20px;
+  }
+  .contact-form__grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-form__footer .button {
+    width: 100%;
+  }
+}

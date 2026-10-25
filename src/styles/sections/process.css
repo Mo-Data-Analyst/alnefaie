@@ -1,0 +1,99 @@
+.process {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+.process .section-heading__kicker {
+  color: var(--color-gold);
+}
+
+.process__steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+/* Gold line connecting the step numbers */
+.process__steps::before {
+  content: '';
+  position: absolute;
+  top: 27px;
+  inset-inline: 12.5%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold) 15%, var(--color-gold) 85%, transparent);
+  opacity: 0.5;
+}
+
+.process-step {
+  position: relative;
+  padding: 0 22px;
+  text-align: center;
+}
+.process-step__number {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 26px;
+  border: 1px solid var(--color-gold);
+  border-radius: 50%;
+  background: var(--color-navy);
+  color: var(--color-gold);
+  font: 600 17px var(--font-latin);
+  transition: 0.3s;
+}
+.process-step:hover .process-step__number {
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+.process-step h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.process-step p {
+  max-width: 240px;
+  margin: 0 auto;
+  color: var(--color-text-on-dark-muted);
+  font-size: 14.5px;
+}
+
+.process__disclaimer {
+  margin-top: 56px;
+  text-align: center;
+  color: #7f8b9c;
+  font-size: 13px;
+}
+
+/* Phones: vertical timeline */
+@media (max-width: 720px) {
+  .process__steps {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .process__steps::before {
+    top: 0;
+    bottom: 0;
+    inset-inline: auto;
+    inset-inline-start: 27px;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(180deg, transparent, var(--color-gold) 8%, var(--color-gold) 92%, transparent);
+  }
+  .process-step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 20px;
+    padding: 0;
+    text-align: start;
+  }
+  .process-step__number {
+    margin: 0;
+  }
+  .process-step p {
+    max-width: none;
+    margin: 0;
+  }
+}

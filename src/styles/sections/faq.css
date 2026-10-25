@@ -1,0 +1,107 @@
+.faq {
+  background: var(--color-white);
+  border-top: 1px solid var(--color-border);
+}
+
+.faq__layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 80px;
+}
+.faq__layout .section-heading {
+  margin-bottom: 0;
+}
+.faq__button {
+  margin-top: 24px;
+}
+
+.faq__list {
+  border-top: 1px solid var(--color-border);
+}
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+.faq-item__heading {
+  font-size: inherit;
+}
+.faq-item__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  padding: 24px 0;
+  border: 0;
+  background: none;
+  color: var(--color-navy);
+  font: 600 17px var(--font-body);
+  line-height: 1.6;
+  text-align: start;
+  cursor: pointer;
+}
+.faq-item__question:hover {
+  color: var(--color-gold-dark);
+}
+
+/* Plus / minus circle */
+.faq-item__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  transition: 0.25s;
+}
+.faq-item__icon::before,
+.faq-item__icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 11px;
+  height: 1.5px;
+  background: var(--color-navy);
+  transform: translate(-50%, -50%);
+  transition: 0.25s;
+}
+.faq-item__icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.faq-item.is-open .faq-item__icon {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+}
+.faq-item.is-open .faq-item__icon::before,
+.faq-item.is-open .faq-item__icon::after {
+  background: var(--color-gold);
+}
+.faq-item.is-open .faq-item__icon::after {
+  transform: translate(-50%, -50%) rotate(0);
+}
+
+.faq-item__answer {
+  max-width: 640px;
+  padding-bottom: 26px;
+  color: var(--color-text-muted);
+  font-size: 15.5px;
+  animation: fade-in 0.3s;
+}
+
+.faq__note {
+  margin-top: 26px;
+  color: var(--color-text-faint);
+  font-size: 13px;
+}
+
+@media (max-width: 1080px) {
+  .faq__layout {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+}
+@media (max-width: 720px) {
+  .faq-item__question {
+    font-size: 16px;
+  }
+}

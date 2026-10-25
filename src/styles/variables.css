@@ -1,0 +1,60 @@
+/*
+  DESIGN TOKENS
+  Change colours, fonts and sizes here — the whole site updates.
+  Screen-size breakpoints used in the CSS files:
+    - 1080px and below: tablet layout (mobile menu, 2 columns)
+    - 720px and below:  phone layout (1 column)
+*/
+
+:root {
+  /* Brand colours */
+  --color-navy: #101d32;
+  --color-blue: #1b2b43;
+  --color-gold: #c7a76c;
+  --color-gold-dark: #a98a50;
+  --color-gold-light: #d4b67e;
+  --color-warm-white: #f8f7f3;
+  --color-white: #ffffff;
+
+  /* Text colours */
+  --color-text: var(--color-navy);
+  --color-text-muted: #5b6676;
+  --color-text-faint: #8a94a3;
+  --color-text-on-dark: #b8c1ce;
+  --color-text-on-dark-muted: #a9b4c3;
+
+  /* Lines and borders */
+  --color-border: #e6e2d8;
+  --color-border-strong: #dad4c6;
+  --color-border-gold: rgba(199, 167, 108, 0.22);
+
+  /* Fonts (Arabic first in Arabic mode, Latin first in English mode) */
+  --font-arabic: 'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
+  --font-latin: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --font-body: var(--font-arabic);
+
+  /* Sizes */
+  --container-width: 1200px;
+  --container-padding: 24px;
+  --radius-small: 10px;
+  --radius-card: 14px;
+  --radius-large: 18px;
+  --section-spacing: 110px;
+  --header-height: 92px;
+  --header-height-scrolled: 66px;
+
+  /* Shadows */
+  --shadow-card: 0 24px 48px -24px rgba(16, 29, 50, 0.22);
+  --shadow-floating: 0 30px 60px -20px rgba(0, 0, 0, 0.55);
+}
+
+html[lang='en'] {
+  --font-body: var(--font-latin);
+}
+
+@media (max-width: 720px) {
+  :root {
+    --container-padding: 16px;
+    --section-spacing: 76px;
+  }
+}
