@@ -18,7 +18,7 @@ export const siteInfo = {
   },
 
   contact: {
-    address: 'مصر',
+    address: { ar: 'مصر', en: 'Egypt' },
     phone: '0 10 09309266',
     whatsappNumber: '201098600163',
     email: 'contact@alnefaie.com',
